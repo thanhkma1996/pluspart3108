@@ -1,21 +1,25 @@
 <?php
-namespace Magenest\PartTimePlus\Setup;
-use Magento\Framework\Setup\UpgradeSchemaInterface;
-use Magento\Framework\Setup\ModuleContextInterface;
-use Magento\Framework\Setup\SchemaSetupInterface;
-class UpgradeSchema implements UpgradeSchemaInterface {
-    public function upgrade(SchemaSetupInterface $setup,ModuleContextInterface $context)
+/**
+ * Created by PhpStorm.
+ * User: hahoang
+ * Date: 22/01/2018
+ * Time: 13:46
+ */
+namespace Magenest\Movie\Setup;
+use	Magento\Framework\Setup\UpgradeSchemaInterface;
+use	Magento\Framework\Setup\ModuleContextInterface;
+use	Magento\Framework\Setup\SchemaSetupInterface;
+class UpgradeSchema	implements UpgradeSchemaInterface
+{
+    public function upgrade(SchemaSetupInterface $setup, ModuleContextInterface $context)
     {
-        if (version_compare($context->getVersion(), '2.0.0') < 0) {
+        if (version_compare($context->getVersion(), '2.0.1') < 0) {
             $installer = $setup;
             $installer->startSetup();
             $connection = $installer->getConnection();
-//Install new database table
-            $table = $installer->getConnection()->newTable(
-                $installer->getTable('magenest_parttimeplus')
+            $table = $installer -> getConnection()->newTable($installer->getTable('magenest_actor')
             )->addColumn(
-
-                'id',
+                'actor_id',
                 \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
                 null, [
                 'identity' => true,
@@ -23,42 +27,89 @@ class UpgradeSchema implements UpgradeSchemaInterface {
                 'nullable' => false,
                 'primary' => true
             ],
-                'ID'
+                'Actor ID'
 
             )->addColumn(
-                'customerprefix',
+                'name',
                 \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
-                64,
-                ['nullable' => false],
-                'customerprefix'
-            )->addColumn(
-                'firstname',
-                \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
-                255, [
-                'unsigned' => true,
-                'nullable' => false],
-                'fristname'
-            )->addColumn(
-                'lastname',
-                \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
-                255,
-                ['nullable' => false],
-                'lastname'
-            )->addColumn(
-                'email',
-                \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
-                11, [
-                'nullable' => false,
-
-            ],
-                'email'
-
-
+                null,['nullable' => false],
+                'Name'
             );
             $installer->getConnection()->createTable($table);
-            $installer->endSetup();
+
+
+
+            $table = $installer -> getConnection()-> newTable($installer->getTable('magenest_director')
+            )->addColumn(
+                'director_id',
+                \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
+                null, [
+                'identity' => true,
+                'unsigned' => true,
+                'nullable' => false,
+                'primary' => true
+            ],
+            'Director ID'
+            )->addColumn(
+                'name',
+                \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+                null,['nullable' => false],
+                'Name'
+             );
+            $installer->getConnection()->createTable($table);
+
+
+
+            $table = $installer->getConnection()->newTable($installer->getTable('magenest_movie')
+            )->addColumn(
+                'movie_id',
+                \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
+                null, [
+                'identity' => true,
+                'unsigned' => true,
+                'nullable' => false,
+                'primary' => true
+            ],
+                'Movie ID'
+            )->addColumn(
+                'name',
+                \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+                null,['nullable' => false],
+                'Name'
+            )->addColumn(
+                'description',
+                \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+                null,['nullable' => false],
+                'description'
+            )->addColumn(
+                'rating',
+                \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
+                null,['nullable' => false],
+                'Rating'
+            )->addColumn(
+                'director_id',
+                \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
+                null,['nullable' => false],
+                'Director ID'
+            );
+                $installer->getConnection()->createTable($table);
+
+
+            $table = $installer->getConnection()->newTable($installer->getTable('magenest_movie_actor')
+            )->addColumn(
+                'movie_id',
+                \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
+                null,['nullable' => false],
+                'Movie ID'
+            )->addColumn(
+                'actor_id',
+                \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
+                null,['nullable' => false],
+                'Actor ID'
+            );
+            $installer->getConnection()->createTable($table);
+                        $installer->endSetup();
         }
-
-
     }
 }
+

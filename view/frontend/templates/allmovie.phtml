@@ -1,0 +1,14 @@
+<h2>List Movie</h2>
+<ul>
+    <?php
+    /**
+     * @var $block \Magenest\Movie\Block\AllMovie
+     */
+    foreach ($block->getMovie() as $movie):	?>
+        <li><?php echo ' Name Movie : '; echo $movie->getName();
+       echo ' __ Movie ID : ' ; echo $movie->getMovieId();
+       echo ' __ Description : '; echo $movie->getDescription() ;
+       echo ' __ Rating : '; echo $movie->getRating();
+       echo ' __ Director ID : '; echo$movie->getDirectorId() ; ?></li>
+    <?php endforeach;	?>
+</ul>

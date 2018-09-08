@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Magenest_Movie::moviemenu"
+             title="Magenest Movie"
+             module="Magenest_Movie"
+             sortOrder="100"
+             resource="Magenest_Movie::moviemenu"/>
+
+        <add id="Magenest_Movie::movie_configuration"
+             title="Configuration"
+             module="Magenest_Movie"
+             sortOrder="200"
+             parent="Magenest_Movie::moviemenu"
+             action="adminhtml/system_config/edit/section/movie"
+             resource="Magenest_Movie::movie_configuration"/>
+
+        <add id="Magenest_Movie:movie"
+             title="Magenest List Movie"
+             module="Magenest_Movie"
+             sortOrder="300"
+             action="movie/movie"
+             resource="Magenest_Movie::movie"
+             parent="Magenest_Movie::moviemenu"/>
+
+        <add id="Magenest_UiForm:movie_uiform"
+             title="Add Movie Use UiComponent"
+             module="Magenest_Movie"
+             sortOrder="250"
+             action="movie/movieui"
+             resource="Magenest_UiForm::movieui"
+             parent="Magenest_Movie::moviemenu"/>
+
+        <add id="Magenest_Movie::actor"
+             title="Magenest List Actors"
+             module="Magenest_Movie"
+             sortOrder="400"
+             action="movie/actor"
+             resource="Magenest_Movie::actor"
+             parent="Magenest_Movie::moviemenu"/>
+
+        <add id="Magenest_Movie::director"
+             title="Magenest List Director"
+             module="Magenest_Movie"
+             sortOrder="500"
+             action="movie/director"
+             resource="Magenest_Movie::director"
+             parent="Magenest_Movie::moviemenu"/>
+
+        <add id="Magenest_Movie::mymenu"
+             title="Technological Option"
+             module="Magenest_Movie"
+             sortOrder="9999"
+             resource="Magenest_Movie::mymenu"/>
+
+        <add id="Magenest_Movie::mypage"
+             title="Technological Appliances"
+             module="Magenest_Movie"
+             sortOrder="100"
+             parent="Magenest_Movie::mymenu"
+             action="movie/mypage"
+             resource="Magenest_Movie::mypage"/>
+
+        <add id="Magenest_Movie::laptoppage"
+             title="Laptop"
+             module="Magenest_Movie"
+             sortOrder="100"
+             parent="Magenest_Movie::mypage"
+             action="movie/mypage"
+             resource="Magenest_Movie::laptoppage"/>
+
+        <add id="Magenest_Movie::phonepage"
+             title="Smart Phone"
+             module="Magenest_Movie"
+             sortOrder="200"
+             parent="Magenest_Movie::mypage"
+             action="movie/mypage/phonepage"
+             resource="Magenest_Movie::phonepage"/>
+
+    </menu>
+</config>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<head>
+    <css src="Magenest_Movie/css/mycss.css"/>
+</head>
+    <body>
+        <referenceContainer name="content">
+            <container name="div.right.additional" htmlTag="div" htmlClass="sidebar right-additional">
+                <block class="Magenest\Movie\Block\Adminhtml\Mypage\CountNumberCustomer" name="movie_mypage_customer" before="-" template="Magenest_Movie::mypage_customer.phtml"/>
+                <block class="Magenest\Movie\Block\Adminhtml\Mypage\CountNumberProduct" name="movie_mypage_product" after="movie_mypage_customer" template="Magenest_Movie::mypage_product.phtml"/>
+                <block class="Magenest\Movie\Block\Adminhtml\Mypage\CountNumberOrder" name="movie_mypage_order" after="movie_mypage_product" template="Magenest_Movie::mypage_order.phtml"/>
+                <block class="Magenest\Movie\Block\Adminhtml\Mypage\CountNumberInvoice" name="movie_mypage_invoice" after="movie_mypage_order" template="Magenest_Movie::mypage_invoice.phtml"/>
+                <block class="Magenest\Movie\Block\Adminhtml\Mypage\CountNumberCredit" name="movie_mypage_credit" after="movie_mypage_invoice" template="Magenest_Movie::mypage_credit.phtml"/>
+            </container>
+            <container name="div.left.additional" htmlTag="div" htmlClass="sidebar left-additional">
+                <block class="Magenest\Movie\Block\Adminhtml\Mypage\CountNumberModule" name="movie_mypage_module" before="-" template="Magenest_Movie::mypage_module.phtml"/>
+            </container>
+
+        </referenceContainer>
+    </body>
+
+</page>

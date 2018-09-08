@@ -1,0 +1,11 @@
+<h2>List Actor</h2>
+<ul>
+
+    <?php
+    /**
+     * @var $block \Magenest\Movie\Block\AllActor
+     */
+    foreach ($block->getActor() as $actor):	?>
+        <li><?php echo	$actor->getName() ?></li>
+    <?php endforeach;	?>
+</ul>

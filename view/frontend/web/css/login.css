@@ -1,0 +1,35 @@
+#outer {
+    text-align: center;
+    border-style: solid;
+    border-size:1px;
+    color: lightgoldenrodyellow;
+    height:30px;
+    width:300px ;
+    display:inline-block;
+}
+
+.right-additional {
+    float: right;
+    width: 300px;
+
+}
+.left-additional {
+    float: left;
+    width: 62%;
+    font-size: 20px;
+    color:darkred;
+    text-align:right;
+
+}
+p {
+    line-height: 2.0;
+}
+#block {
+    text-align: center;
+    border-style: solid;
+    border-size:60px;
+    color: white;
+    height:30px;
+    width:65% ;
+    display:inline-block;
+}

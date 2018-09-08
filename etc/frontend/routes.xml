@@ -1,8 +1,8 @@
-<?xml version="1.0"?>
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
-    <router id="standard">
-        <route id="parttime" frontName="parttime">
-            <module name="Magenest_PartTimePlus" />
+<?xml	version="1.0"?>
+<config	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsdsu">
+    <router	id="standard">
+        <route	id="movie"	frontName="movie">
+            <module	name="Magenest_Movie" before="Magento_Backend"	/>
         </route>
     </router>
 </config>

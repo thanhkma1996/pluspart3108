@@ -1,0 +1,26 @@
+<div class="page-actions">
+    <div class="page-actions-inner">
+        <div class="page-actions-buttons">
+            <button  href="#" id="buttons"
+                    class="action-primary"
+                    title="<?php echo __('Hello button')	?>">
+                <?php echo __('Primary	button')	?>
+            </button class="action-primary">
+
+
+            <button href="#" id="buttons_login"
+                    class="action-secondary"
+                    title="<?php echo __('Login	button')	?>">
+                <?php echo __('Login Button')	?>
+            </button>
+        </div>
+    </div>
+</div>
+
+<div id="popup-mpdal" style="display:none;">
+    <?php include ($block->getTemplateFile('Magenest_Movie::form/form_hello.phtml')) ?>
+</div>
+
+<div id="popup-mpdal-login" style="display:none;">
+    <?php include ($block->getTemplateFile('Magenest_Movie::form/form_login.phtml')) ?>
+</div>

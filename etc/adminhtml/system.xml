@@ -1,21 +1,94 @@
-<?xml version="1.0"?>
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+<?xml	version="1.0"?>
+<config	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
-        <section id="customer">
-            <group id="parttime" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
-                <label>Customer custom Prefix</label>
+        <tab	id="magenest"
+                translate="label"
+                sortOrder="100000">
+            <label>Magenest</label>
+        </tab>
+        <section	id="movie"
+                    translate="label"
+                    type="text"
+                    sortOrder="100"
+                    showInDefault="1"
+                    showInWebsite="1"
+                    showInStore="1">
+            <label>Movie</label>
+            <tab>magenest</tab>
+            <resource>Magenest_Movie::config_movie</resource>
 
-                <field id="name" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>ODD(global)</label>
-                    <comment>leave emty for defualt "ODD"</comment>
+            <group	id="moviepage"
+                      translate="label"
+                      type="text"
+                      sortOrder="1"
+                      showInDefault="1"
+                      showInWebsite="1"
+                      showInStore="1">
+                <label>Movie page settings</label>
+
+                <field	    id="text"
+                            translate="label"
+                            type="text"
+                            sortOrder="10"
+                            showInDefault="1"
+                            showInWebsite="1"
+                            showInStore="1">
+                    <label>Text</label>
                 </field>
 
-                <field id="name1" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Even(global)</label>
-                    <comment>leave emty for defualt "Even"</comment>
+                <field	id="yesorno"
+                          translate="label"
+                          type="select"
+                          sortOrder="20"
+                          showInDefault="1"
+                          showInWebsite="1"
+                          showInStore="1">
+                    <label>Yes/No</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
+
+                <field	id="selection"
+                          translate="label"
+                          type="select"
+                          sortOrder="600"
+                          showInDefault="1"
+                          showInWebsite="1"
+                          showInStore="1">
+                    <label>Custom Select</label>
+                    <source_model>Magenest\Movie\Model\Config\Source\Select</source_model>
+                </field>
+                <field id="movie_row_counter"
+                       translate="label comment"
+                       type="text"
+                       sortOrder="700"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Number of row in the table magenest movie</label>
+                    <frontend_model>Magenest\Movie\Block\Adminhtml\System\Config\Form\Field\MovieRowCounter</frontend_model>
+                </field>
+                <field id="actor_row_counter"
+                       translate="label comment"
+                       type="text"
+                       sortOrder="800"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Number of row in the table magenest actor</label>
+                    <frontend_model>Magenest\Movie\Block\Adminhtml\System\Config\Form\Field\ActorRowCounter</frontend_model>
+                </field>
+                <field id="button"
+                       translate="label"
+                       sortOrder="900"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Button Reset</label>
+                    <frontend_model>Magenest\Movie\Block\Adminhtml\System\Config\Form\Field\Button</frontend_model>
+                </field>
+
             </group>
         </section>
-
     </system>
 </config>
